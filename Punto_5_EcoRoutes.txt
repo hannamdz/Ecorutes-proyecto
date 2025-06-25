@@ -1,0 +1,24 @@
+5. Pruebas desde Django y mediante scripts en Python
+---------------------------------------------------------------
+a. Pruebas desde el shell de Django:
+
+    python manage.py shell
+
+    from api.models import Station
+    Station.objects.create(name="Estación Centro", location={"lat": 19.4326, "lng": -99.1332})
+    Station.objects.all()
+
+b. Pruebas mediante scripts externos en Python (requiere requests):
+
+    import requests
+
+    data = {
+        "origin": "Parque México",
+        "destination": "Museo Soumaya",
+        "distance_km": 6.2,
+        "transportation_modes": ["bicicleta", "metro"]
+    }
+
+    response = requests.post("http://localhost:8000/routes/", json=data)
+    print(response.status_code)
+    print(response.json())

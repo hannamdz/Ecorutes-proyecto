@@ -1,0 +1,18 @@
+2. Creación de proyecto en Django y configuración de MongoDB
+------------------------------------------------------------------
+Se creó un nuevo proyecto Django con el comando:
+
+    django-admin startproject ecoroutes_project
+
+Luego, se generó una app llamada `api`:
+
+    python manage.py startapp api
+
+Para conectar MongoDB se utilizó la librería `djongo` y se configuró en `settings.py`:
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'djongo',
+            'NAME': 'eco_routes_db',
+        }
+    }
